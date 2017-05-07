@@ -24,7 +24,7 @@
 #include <EEPROM.h>
 
 #include "NTPClient.h"
-#include "BasicMedianFilter.h"
+#include "ArduinoMedianFilter.h"
 
 class Thermostat
 {
@@ -338,7 +338,7 @@ bool getValue(int &value, const char* name, const String &request)
 }
 
 const uint8_t SAMPLES_COUNT = 20;
-BasicMedianFilter<uint16_t, SAMPLES_COUNT> temperatureFilter;
+ArduinoMedianFilter<uint16_t, uint8_t, SAMPLES_COUNT> temperatureFilter;
 
 double getTemperature()
 {
